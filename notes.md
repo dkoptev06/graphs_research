@@ -45,3 +45,22 @@ dima@zenbook:~/Desktop/term_project$
 compiling `geng`:
 `gcc -o geng -O4  -mpopcnt -march=native -DMAXN=WORDSIZE -DWORDSIZE=32 geng.c gtoolsW.o nautyW1.o \
         nautilW1.o naugraphW1.o schreier.o naurng.o `
+
+
+
+## inplace generation
+```
+dima@zenbook:~/nauty2_8_9$ ./aa_geng -c 9 > aa_output9.txt
+>A ./aa_geng -cd1D8 n=9 e=8-36
+>Z 261080 graphs generated in 0.48 sec
+dima@zenbook:~/nauty2_8_9$ ./aa_geng -c 10 > aa_output10.txt
+>A ./aa_geng -cd1D9 n=10 e=9-45
+>Z 11716571 graphs generated in 24.06 sec
+dima@zenbook:~/nauty2_8_9$ ./aa_geng -c 11 > aa_output11.txt
+>A ./aa_geng -cd1D10 n=11 e=10-55
+>Z 1006700565 graphs generated in 2362.41 sec
+```
+
+Compiling processing program: `g++ aa_outproc.cpp -c -o aa_outproc.o -O4 -mpopcnt -march=native -DMAXN=WORDSIZE -DOUTPROC=procname -DWORDSIZE=32` \
+Compiling geng program: `gcc -o aa_geng.o -O4 -mpopcnt -march=native -DMAXN=WORDSIZE -DOUTPROC=procname -DWORDSIZE=32 -c geng.c` \
+Linking: `g++ -o aa_geng aa_geng.o aa_outproc.o gtoolsW.o nautyW1.o nautilW1.o naugraphW1.o schreier.o naurng.o` \

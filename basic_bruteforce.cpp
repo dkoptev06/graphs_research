@@ -6,21 +6,26 @@ using namespace std;
 
 typedef unsigned long long ull;
 
-const int N = 11;
+const int N = 12;
 const int M = N * (N - 1) / 2;
 const int INF = 1'000'000'000;
-const int BENCHMARK_TEST_COUNT = 1000;
+const int BENCHMARK_TEST_COUNT = 10000;
 
 int diameter_upper_bound;
 vector<vector<vector<pair<int, int>>>> triangles(N, vector<vector<pair<int, int>>>(N));
 
 class GraphProcessor {
 public:
-    static vector<vector<int>> CalculateDistanceMatrix(const vector<vector<int>> &gr) {
+    static std::array<std::array<int, N>, N> CalculateDistanceMatrix(
+        const vector<vector<int>> &gr) {
         int n = gr.size();
-        vector<vector<int>> dist(n, vector<int>(n, INF));
+        std::array<std::array<int, N>, N> dist;
         for (int start_v = 0; start_v < n; start_v++) {
+            for (int u = 0; u < n; u++) {
+                dist[start_v][u] = INF;
+            }
             dist[start_v][start_v] = 0;
+
             queue<int> q;
             q.push(start_v);
             while (!q.empty()) {
@@ -38,11 +43,12 @@ public:
     }
 
     static void ProcessGraphBasic(const vector<vector<int>> &gr, bool ignore_output = false) {
-        vector<vector<int>> dist = GraphProcessor::CalculateDistanceMatrix(gr);
+        std::array<std::array<int, N>, N> dist = GraphProcessor::CalculateDistanceMatrix(gr);
         int diameter = 0;
         for (int v = 0; v < N; v++) {
             diameter = max(diameter, *max_element(dist[v].begin(), dist[v].end()));
         }
+        return;
         if (diameter == INF) {
             return;
         }
@@ -80,7 +86,7 @@ public:
     }
 
     static void ProcessGraphOptimized(const vector<vector<int>> &gr, bool ignore_output = false) {
-        vector<vector<int>> dist = GraphProcessor::CalculateDistanceMatrix(gr);
+        std::array<std::array<int, N>, N> dist = GraphProcessor::CalculateDistanceMatrix(gr);
         int diameter = 0;
         for (int v = 0; v < N; v++) {
             diameter = max(diameter, *max_element(dist[v].begin(), dist[v].end()));
@@ -160,6 +166,7 @@ void GenerateTriangles() {
             }
             sort(triangles[diameter][d0].begin(), triangles[diameter][d0].end());
             max_triangle_count = max(max_triangle_count, (int)triangles[diameter][d0].size());
+            cout << diameter << ' ' << d0 << ": " << (int)triangles[diameter][d0].size() << '\n';
         }
         if (N >= max_triangle_count) {
             diameter_upper_bound = diameter;
@@ -261,11 +268,11 @@ int main(int argc, char *argv[]) {
 
     cout << "Diameter upper bound: " << diameter_upper_bound << endl;
 
-    {
-        cout << "Running benchmark: " << endl;
-        Benchmark();
-        cout << "Benchmark finished" << endl;
-    }
+    // {
+    //     cout << "Running benchmark: " << endl;
+    //     Benchmark();
+    //     cout << "Benchmark finished" << endl;
+    // }
 
     // {
     //     cout << "Running bruteforce: " << endl;
