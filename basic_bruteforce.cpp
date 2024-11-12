@@ -268,11 +268,11 @@ int main(int argc, char *argv[]) {
 
     cout << "Diameter upper bound: " << diameter_upper_bound << endl;
 
-    // {
-    //     cout << "Running benchmark: " << endl;
-    //     Benchmark();
-    //     cout << "Benchmark finished" << endl;
-    // }
+    {
+        cout << "Running benchmark: " << endl;
+        Benchmark();
+        cout << "Benchmark finished" << endl;
+    }
 
     // {
     //     cout << "Running bruteforce: " << endl;
