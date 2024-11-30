@@ -62,7 +62,7 @@ public:
             }
         }
 
-        if (good_graph && diameter >= 3) {
+        if (good_graph) {
             for (int v = 0; v < n; v++) {
                 for (int u : gr[v]) {
                     if (u > v) {
