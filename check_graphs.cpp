@@ -39,7 +39,7 @@ public:
             diameter = max(diameter, *max_element(dist[v].begin(), dist[v].end()));
         }
 
-        if (diameter == INF || diameter <= 3) {
+        if (diameter == INF) {
             return false;
         }
 
@@ -63,15 +63,15 @@ public:
         }
 
         if (good_graph) {
-            for (int v = 0; v < n; v++) {
-                for (int u : gr[v]) {
-                    if (u > v) {
-                        cout << v + 1 << ' ' << u + 1 << '\n';
-                    }
-                }
-            }
-            cout << "\n---\n\n";
-            cout.flush();
+            // for (int v = 0; v < n; v++) {
+            //     for (int u : gr[v]) {
+            //         if (u > v) {
+            //             cout << v + 1 << ' ' << u + 1 << '\n';
+            //         }
+            //     }
+            // }
+            // cout << "\n---\n\n";
+            // cout.flush();
             return true;
         }
         return false;
@@ -88,10 +88,10 @@ int main(int argc, char *argv[]) {
         int n, k;
         cin >> n >> k;
         vector<vector<int>> gr(n);
-        vector<int> is_present(n, 0);
-        for (int i = 0, num; i < k; i++) {
-            cin >> num;
-            is_present[num] = 1;
+        vector<int> d(k), is_present(n, 0);
+        for (int i = 0; i < k; i++) {
+            cin >> d[i];
+            is_present[d[i]] = 1;
         }
         for (int v = 0; v < n; v++) {
             for (int u = v + 1; u < n; u++) {
@@ -101,6 +101,12 @@ int main(int argc, char *argv[]) {
                 }
             }
         }
-        GraphProcessor::ProcessGraphBasic(gr);
+        if (GraphProcessor::ProcessGraphBasic(gr)) {
+            cout << n << ": ";
+            for (int dif : d) {
+                cout << dif << ' ';
+            }
+            cout << '\n';
+        }
     }
 }
