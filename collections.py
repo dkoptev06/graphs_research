@@ -189,42 +189,84 @@ critical_graphs = [
 ]
 
 circulant_graphs = [
-    'https://users.cecs.anu.edu.au/~bdm/data/circ5.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ6.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ7.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ8.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ9.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ10.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ11.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ12.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ13.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ14.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ15.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ16.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ17.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ18.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ19.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ20.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ21.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ22.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ23.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ24.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ25.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ26.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ27.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ28.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ29.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ30.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ31.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ32.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ33.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ34.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ35.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ36.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ37.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ38.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ39.tar.gz',
-    'https://users.cecs.anu.edu.au/~bdm/data/circ40.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ5.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ6.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ7.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ8.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ9.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ10.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ11.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ12.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ13.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ14.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ15.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ16.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ17.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ18.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ19.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ20.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ21.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ22.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ23.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ24.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ25.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ26.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ27.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ28.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ29.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ30.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ31.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ32.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ33.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ34.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ35.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ36.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ37.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ38.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ39.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ40.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ41.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ42.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ43.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ44.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ45.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ46.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ47.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ48.tar.gz',
+    'https://users.cecs.anu.edu.au/~bdm/data/circ49.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ50.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ51.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ52.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ53.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ54.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ55.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ56.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ57.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ58.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ59.tar.gz',
+    #  'https://users.cecs.anu.edu.au/~bdm/data/circ60.tar.gz',
+    #  'https://users.cecs.anu.edu.au/~bdm/data/circ61.tar.gz',
+    #  'https://users.cecs.anu.edu.au/~bdm/data/circ62.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ63.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ64.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ65.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ66.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ67.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ68.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ69.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ70.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ71.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ72.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ73.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ74.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ75.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ76.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ77.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ78.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ79.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ80.tar.gz',
+    # 'https://users.cecs.anu.edu.au/~bdm/data/circ81.tar.gz',
+
 ]
 
 
@@ -232,7 +274,7 @@ CIRC_COLLECTION_NAME = "Circulant"
 
 collections_url_list = [
     # (connected_by_edges_count, "Connected _ By Edge Count"),
-    (euler_graph_list, "Euler"),
+    # (euler_graph_list, "Euler"),
     # (chordal_graph_list, "Chordal"),
     # (perfect_graph_list, "Perfect"),
     # (SRG_list, "Strongly Regular"), # all are discrete-triangular
@@ -280,14 +322,15 @@ def make_name_valid(s):
 
 
 def process_graph_list(name_list, collection_name):
-    print(f"Processing {collection_name}")
-    out_file_all = f"data/output/{make_name_valid(collection_name)}.txt"
-    out_file_d3 = f"data/output/{make_name_valid(collection_name)}D3.txt"
-    subprocess.call(f'touch {out_file_all}', shell=True)
-    subprocess.call(f'rm {out_file_all}', shell=True)
-    subprocess.call(f'touch {out_file_d3}', shell=True)
-    subprocess.call(f'rm {out_file_d3}', shell=True)
+    print(f"\n\n\n---\nProcessing {collection_name}\n---\n\n\n")
+    #out_file_all = f"data/output/{make_name_valid(collection_name)}.txt"
+    out_file_d4 = f"data/output/{make_name_valid(collection_name)}D4.txt"
+    #subprocess.call(f'touch {out_file_all}', shell=True)
+    #subprocess.call(f'rm {out_file_all}', shell=True)
+    subprocess.call(f'touch {out_file_d4}', shell=True)
+    subprocess.call(f'rm {out_file_d4}', shell=True)
     for name in name_list:
+        print(f"Processing {name}")
         if collection_name != CIRC_COLLECTION_NAME:
             with open(f'data/showg/{name}', 'r') as f_read:
                 with open(f'data/parsed/{name}', 'w+') as f_write:
@@ -298,11 +341,11 @@ def process_graph_list(name_list, collection_name):
                         desc_parts = graph_line.split('.')
                         assert len(desc_parts) == 2
                         f_write.write(desc_parts[1].strip() + '\n')
-        subprocess.call(f'out/check_graphs_all < data/parsed/{name} >> {out_file_all}', shell=True)
-        subprocess.call(f'out/check_graphs_d3 < data/parsed/{name} >> {out_file_d3}', shell=True)
-    with open(out_file_all, "a") as f:
-        f.write("end")
-    with open(out_file_d3, "a") as f:
+        # subprocess.call(f'out/check_graphs_all < data/parsed/{name} >> {out_file_all}', shell=True)
+        subprocess.call(f'out/check_graphs_d4 < data/parsed/{name} >> {out_file_d4}', shell=True)
+    # with open(out_file_all, "a") as f:
+    #     f.write("end")
+    with open(out_file_d4, "a") as f:
         f.write("end")
 
 
@@ -310,25 +353,47 @@ def process_collections():
     for (collection, name) in collections_name_list:
         process_graph_list(collection, name)
 
+import os.path
 
 def download_circulant_graphs():
+    batch_size_limit = 1000000
     print(f"Downloading {CIRC_COLLECTION_NAME}:")
     name_list = []
     for url in circulant_graphs:
         name = url.split('/')[-1]
-        print(f"Getting url: {url}")
-        response = requests.get(url)
-        if response.status_code != 200:
-            print(f"Error: Response status code {response.status_code}")
-            continue
-        with open(f'data/raw/{name}', 'wb+') as f:
-            f.write(response.content)
+        if os.path.isfile(f'data/raw/{name}'):
+            print(f"Already have url: {url}")
+        else:
+            print(f"Getting url: {url}")
+            response = requests.get(url)
+            if response.status_code != 200:
+                print(f"Error: Response status code {response.status_code}")
+                continue
+            with open(f'data/raw/{name}', 'wb+') as f:
+                f.write(response.content)
+        print("Processing")
         assert name.endswith(".tar.gz")
         assert name.startswith("circ")
         tar = tarfile.open(f"data/raw/{name}")
         name = name[:-7]
+        batch_number = 1
         n = int(name[4:])
         graphs = []
+
+        def dump_on_disk():
+            nonlocal graphs, name, batch_number
+            batch_name = f"{name}_batch{batch_number}"
+            with open(f'data/parsed/{batch_name}', 'w') as f_write:
+                f_write.write(f"{len(graphs)}\n")
+                for nums in graphs:
+                    f_write.write(f"{n} {len(nums)}\n")
+                    for num in nums:
+                        f_write.write(f"{num} ")
+                    f_write.write("\n")
+            print(f'saved {batch_name}')
+            name_list.append(batch_name)
+            graphs = []
+            batch_number += 1
 
         for member in tar.getmembers():
             f = tar.extractfile(member)
@@ -337,22 +402,11 @@ def download_circulant_graphs():
                 if len(line.strip()) == 0:
                     continue
                 nums = list(map(int, line.split()))
-                edge_list = []
-                for v in range(n):
-                    for u in range(v+1, n):
-                        if (v-u + n) % n in nums:
-                            edge_list.append((v, u))
-                graphs.append(edge_list)
+                graphs.append(nums)
+                if len(graphs) == batch_size_limit:
+                    dump_on_disk()
 
-        with open(f'data/parsed/{name}', 'w') as f_write:
-            f_write.write(f"{len(graphs)}\n")
-            for edge_list in graphs:
-                f_write.write(f"{n} {len(edge_list)}\n")
-                for (v, u) in edge_list:
-                    f_write.write(f"{v} {u}\n")
-                f_write.write("\n")
-        
-        name_list.append(name)
+        dump_on_disk()
 
     global collections_name_list
     collections_name_list.append((name_list, CIRC_COLLECTION_NAME))

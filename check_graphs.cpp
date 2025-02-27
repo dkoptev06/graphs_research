@@ -39,7 +39,7 @@ public:
             diameter = max(diameter, *max_element(dist[v].begin(), dist[v].end()));
         }
 
-        if (diameter == INF) {
+        if (diameter == INF || diameter <= 3) {
             return false;
         }
 
@@ -85,15 +85,21 @@ int main(int argc, char *argv[]) {
     int graph_count;
     cin >> graph_count;
     for (int gr_id = 0; gr_id < graph_count; gr_id++) {
-        int n, m;
-        cin >> n >> m;
+        int n, k;
+        cin >> n >> k;
         vector<vector<int>> gr(n);
-        for (int i = 0; i < m; i++) {
-            int v, u;
-            cin >> v >> u;
-            assert((v >= 0 && v < n) && (u >= 0 && u < n));
-            gr[v].push_back(u);
-            gr[u].push_back(v);
+        vector<int> is_present(n, 0);
+        for (int i = 0, num; i < k; i++) {
+            cin >> num;
+            is_present[num] = 1;
+        }
+        for (int v = 0; v < n; v++) {
+            for (int u = v + 1; u < n; u++) {
+                if (is_present[(v - u + n) % n]) {
+                    gr[v].push_back(u);
+                    gr[u].push_back(v);
+                }
+            }
         }
         GraphProcessor::ProcessGraphBasic(gr);
     }
