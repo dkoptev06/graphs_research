@@ -1,3 +1,7 @@
+"""
+This program fetches and lists all urls to the graphs collections from the main page of online graph collection.
+"""
+
 import requests
 from bs4 import BeautifulSoup
  

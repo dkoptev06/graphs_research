@@ -1,72 +1,9 @@
-#include <bits/stdc++.h>
-#include <climits>
-
-using namespace std;
-
-typedef unsigned long long ull;
+#include "dtg.cpp"
 
 const int INF = 1'000'000'000;
 
-class GraphProcessor {
-public:
-    static vector<vector<int>> CalculateDistanceMatrix(const vector<vector<int>> &gr) {
-        int n = gr.size();
-        vector<vector<int>> dist(n, vector<int>(n, INF));
-        for (int start_v = 0; start_v < n; start_v++) {
-            dist[start_v][start_v] = 0;
-
-            queue<int> q;
-            q.push(start_v);
-            while (!q.empty()) {
-                int v = q.front();
-                q.pop();
-                for (int u : gr[v]) {
-                    if (dist[start_v][u] > dist[start_v][v] + 1) {
-                        dist[start_v][u] = dist[start_v][v] + 1;
-                        q.push(u);
-                    }
-                }
-            }
-        }
-        return dist;
-    }
-
-    static bool ProcessGraphBasic(const vector<vector<int>> &gr) {
-        int n = gr.size();
-        vector<vector<int>> dist = GraphProcessor::CalculateDistanceMatrix(gr);
-        int diameter = 0;
-        for (int v = 0; v < n; v++) {
-            diameter = max(diameter, *max_element(dist[v].begin(), dist[v].end()));
-        }
-
-        if (diameter == INF) {
-            return false;
-        }
-
-        bool good_graph = true;
-        for (int a = 0; a < n && good_graph; a++) {
-            for (int b = a + 1; b < n && good_graph; b++) {
-                int d0 = dist[a][b];
-                for (int d1 = 0; d1 <= diameter && good_graph; d1++) {
-                    for (int d2 = 0; d2 <= diameter && good_graph; d2++) {
-                        if (!(d1 + d0 >= d2 && d2 + d0 >= d1 && d1 + d2 >= d0)) {
-                            continue;
-                        }
-                        bool c_exists = false;
-                        for (int c = 0; c < n && !c_exists; c++) {
-                            c_exists |= (dist[a][c] == d1 && dist[b][c] == d2);
-                        }
-                        good_graph &= c_exists;
-                    }
-                }
-            }
-        }
-
-        return good_graph;
-    }
-};
-
 std::mutex output_mutex;
+FastDtgChecker checker{};
 
 void try_extend(vector<vector<int>> g, unsigned offset, unsigned step) {
     int n = g.size();
@@ -80,7 +17,7 @@ void try_extend(vector<vector<int>> g, unsigned offset, unsigned step) {
             }
         }
         g.push_back(neighbours);
-        if (GraphProcessor::ProcessGraphBasic(g)) {
+        if (checker.ProcessGraph(g)) {
             std::unique_lock lock{output_mutex};
             cout << "Solution found:\n";
             for (int u : neighbours) {
@@ -161,9 +98,9 @@ int main(int argc, char *argv[]) {
         {22, 27}, {22, 29}, {23, 24}, {23, 29}, {24, 25}, {24, 29}, {25, 26}, {26, 27}, {27, 28}, {28, 29},
     });
 
-    assert(GraphProcessor::ProcessGraphBasic(test));
-    assert(GraphProcessor::ProcessGraphBasic(g1));
-    assert(GraphProcessor::ProcessGraphBasic(g2));
+    assert(checker.ProcessGraph(test));
+    assert(checker.ProcessGraph(g1));
+    assert(checker.ProcessGraph(g2));
 
     // extend_multithread(test, "test graph");
     extend_multithread(g1, "cube of triangle");
